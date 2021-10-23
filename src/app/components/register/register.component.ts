@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
     this.obj = new User();
     this.obj.firstName = firstname;
     this.obj.lastName = lastname;
-    this.obj.phoneNumber = phno;
+    this.obj._id = phno;
     this.obj.emailAddress = email;
     //this.serviceMethod.RegisterUser(this.obj).subscribe(data=>{if(data) {this.router.avigate()})};
   }
