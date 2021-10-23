@@ -11,9 +11,9 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
-  registerUser(obj: User): Observable<User> {
+  registerUser(obj): Observable<Response> {
     let httpHeaders = new HttpHeaders().set("Content-Type", "application/json");
-    return this.http.post<User>("https://url", obj);
+    return this.http.post<Response>("https://hackthisfall.herokuapp.com/register", obj);
   }
 
   checkIfUserExists(phoneNumber: string): Observable<Response> {
@@ -22,6 +22,7 @@ export class UserService {
       `${this.baseURL}check?user=${validationNumber}`
     );
   }
+
 }
 
 interface Response {
