@@ -12,3 +12,14 @@ export class Contact {
     email:string;
     relationship:string;
 }
+
+export class sosMessage {
+    user:string;
+    lat:number;
+    long:number;
+    message:string;
+}
+
+export class fakeCallNumber {
+    user:string;
+}
