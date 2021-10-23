@@ -12,6 +12,7 @@ export class SOSComponent implements OnInit {
   message: string;
   status: string;
 
+
   constructor(private serviceMethod: ApiCallService) {}
 
   ngOnInit() {
@@ -34,6 +35,7 @@ export class SOSComponent implements OnInit {
         sosMessageObj.message = this.message;
         this.serviceMethod.sosMessage(sosMessageObj).subscribe(() => {
           this.status = "SOS Message sent";
+
         });
       });
     } else {

@@ -8,7 +8,7 @@ export class User {
 
 export class Contact {
   name: string;
-  phonenumber: number;
+  phoneno: string;
   email: string;
   relationship: string;
 }

@@ -13,6 +13,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { HomeComponent } from "./components/home/home.component";
 
 import { SOSComponent } from "./components/sos/sos.component";
+import { UserprofileComponent } from './components/userprofile/userprofile.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { SOSComponent } from "./components/sos/sos.component";
     RegisterComponent,
     HomeComponent,
     SOSComponent,
+    UserprofileComponent,
   ],
   imports: [
     BrowserModule,
