@@ -44,6 +44,9 @@ export class LoginComponent implements OnInit {
               console.log("Response:", response);
               this.router.navigate(["/home"]);
             } else {
+              sessionStorage.setItem(
+                "newUser",
+                JSON.stringify(payload.identifier.substring(3)));
               this.router.navigate(["/register"]);
             }
           });

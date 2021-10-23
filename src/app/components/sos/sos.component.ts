@@ -12,7 +12,7 @@ export class SOSComponent implements OnInit {
   lng: number;
   message: string = "Send help";
   status: string;
-  phonenumber: string = "9400881089";
+  phonenumber: string;
   obj: sosMessage;
   objFake: fakeCallNumber;
 
@@ -27,12 +27,13 @@ export class SOSComponent implements OnInit {
         this.lng = position.coords.longitude;
         console.log(this.lat, this.lng);
         this.obj = new sosMessage();
-        this.obj.user = "9400881089"; //localStorage.getItem('phonenumber');
+        this.obj.user = JSON.parse(sessionStorage.getItem('activeUser'));
+        //console.log(this.obj.user);
         this.obj.lat = this.lat;
         this.obj.long = this.lng;
         this.obj.message = this.message;
         this.serviceMethod.sosMessage(this.obj).subscribe(() => {
-          this.status = "SOS Message sent";
+         this.status = "SOS Message sent";
         });
       });
     } else {

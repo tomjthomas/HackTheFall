@@ -1,14 +1,14 @@
 export class User {
-  firstName: string;
-  lastName: string;
+  firstname: string;
+  lastname: string;
   _id: string;
-  emailAddress: string;
-  contactList: Contact[];
+  email: string;
+  contacts: Contact[];
 }
 
 export class Contact {
   name: string;
-  phoneNumber: number;
+  phoneno: string;
   email: string;
   relationship: string;
 }

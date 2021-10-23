@@ -32,11 +32,11 @@
   
       <!-- Registeration Form -->
       <div class="col-md-7 col-lg-6 ml-auto">
-        <form action="#">
-          <div class="row">
-  
-            <!-- First Name -->
-            <div class="input-group col-lg-6 mb-4">
+        <form action="">
+          <div id="pg1" [style.display]="isShown ? 'block' : 'none'">
+              <div class="row">
+              <!--First name-->
+            <div  class="input-group col-lg-6 mb-4">
               <div class="input-group-prepend">
                 <span class="input-group-text bg-white px-4 border-md border-right-0">
                   <i class="fa fa-user text-muted"></i>
@@ -54,6 +54,7 @@
               </div>
               <input id="lastName" type="text" name="lastname" placeholder="Last Name" class="form-control bg-white border-left-0 border-md" #lastname>
             </div>
+          </div>
   
             <!-- Phone Number -->
             <div class="input-group col-lg-12 mb-4">
@@ -62,7 +63,7 @@
                     <i class="fa fa-phone-square text-muted"></i>
                   </span>
                 </div>
-                <input id="phoneNumber" type="tel" name="phone" placeholder="Phone Number" class="form-control bg-white border-md border-left-0 pl-3" #phno>
+                <input id="phoneNumber" type="tel" name="phone" value ="{{phno_id}}"placeholder="Phone Number" class="form-control bg-white border-md border-left-0 pl-3" >
               </div>
 
             <!-- Email Address -->
@@ -74,30 +75,104 @@
               </div>
               <input id="email" type="email" name="email" placeholder="Email Address" class="form-control bg-white border-left-0 border-md" #email>
             </div>
-
-
-            <!-- Submit Button -->
+             
+            <!--Next Button-->
             <div class="form-group col-lg-12 mx-auto mb-0">
-                <button class="btn btn-primary btn-block py-2" (click)="register(firstname.value,lastname.value,phno.value,email.value)">Login</button>
-                <span class="font-weight-bold">Create your account</span>
-              
+              <button class="btn btn-primary btn-block py-2" (click)="toggleShow()">Next</button>
+              <span class="font-weight-bold"></span>
+           </div>
+        </div>
+       
+          <div id="pg2" [style.display]="isShown2 ? 'block' : 'none'" class="row container-fluid" >
+
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <label for="inputCity">Name</label>
+                <input type="text" class="form-control" id="inputCity" #name1>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="inputCity">Phone No</label>
+                <input type="text" class="form-control" id="inputCity" #ph1>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="inputZip">Email</label>
+                <input type="text" class="form-control" id="inputZip" #email1>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="inputZip">Relationship</label>
+                <input type="text" class="form-control" id="inputZip" #rln1>
+              </div>
             </div>
-  
+
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <label for="inputCity">Name</label>
+                <input type="text" class="form-control" id="inputCity" #name2>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="inputCity">Phone No</label>
+                <input type="text" class="form-control" id="inputCity" #ph2>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="inputZip">Email</label>
+                <input type="text" class="form-control" id="inputZip" #email2>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="inputZip">Relationship</label>
+                <input type="text" class="form-control" id="inputZip" #rln2>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <label for="inputCity">Name</label>
+                <input type="text" class="form-control" id="inputCity" #name3>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="inputCity">Phone No</label>
+                <input type="text" class="form-control" id="inputCity" #ph3>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="inputZip">Email</label>
+                <input type="text" class="form-control" id="inputZip" #email3>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="inputZip">Relationship</label>
+                <input type="text" class="form-control" id="inputZip" #rln3>
+              </div>
+            </div>
+      
+            <!-- Go back Button -->
+            <div class="form-group col-lg-12 mx-auto mb-0">
+              <button class="btn btn-primary btn-block py-2" (click)="toggleShow()">Go Back</button>
+              <span class="font-weight-bold"></span>
+            
+          </div>
+        
+          
             <!-- Divider Text -->
             <div class="form-group col-lg-12 mx-auto d-flex align-items-center my-4">
               <div class="border-bottom w-100 ml-5"></div>
-              <span class="px-2 small text-muted font-weight-bold text-muted">OR</span>
+              <span class="px-2 small text-muted font-weight-bold text-muted"></span>
               <div class="border-bottom w-100 mr-5"></div>
             </div>
-  
+          
+          <!-- Submit Button -->
+          <div class="form-group col-lg-12 mx-auto mb-0">
+            <button class="btn btn-primary btn-block py-2" (click)="register(firstname.value,lastname.value,email.value,name1.value,name2.value,name3.value,ph1.value,ph2.value,ph3.value,email1.value,email2.value,email3.value,rln1.value,rln2.value,rln3.value)">Register</button>
+            <span class="font-weight-bold"></span>
+          
+          </div>       
+        </div>
             <!-- Already Registered -->
             <div class="text-center w-100">
               <p class="text-muted font-weight-bold">Already Registered? <a href="#" class="text-primary ml-2">Login</a></p>
             </div>
-  
-          
-       
-      
-    </div>
+            </form>
+            </div>
+            </div>
+            </div>
+            </body>
+   
   
 
