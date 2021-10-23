@@ -8,7 +8,11 @@ import { RegisterComponent } from './components/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from './guards/auth.guard'; 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { HomeComponent } from './components/home/home.component';
+
+import { SOSComponent } from './components/sos/sos.component';
+
 
 
 @NgModule({
@@ -16,7 +20,11 @@ import { HomeComponent } from './components/home/home.component';
     AppComponent,
     LoginComponent,
     RegisterComponent,
+
     HomeComponent,
+
+    SOSComponent
+
   ],
   imports: [
     BrowserModule,

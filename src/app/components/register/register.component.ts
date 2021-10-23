@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
     this.obj.lastName = lastname;
     this.obj._id = phno;
     this.obj.emailAddress = email;
-    //this.serviceMethod.RegisterUser(this.obj).subscribe(data=>{if(data) {this.v_type="Home"})};
+    //this.serviceMethod.RegisterUser(this.obj).subscribe(data=>{if(data) {this.router.avigate()})};
   }
 }
 
