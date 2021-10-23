@@ -5,7 +5,6 @@ import { HomeComponent } from "./components/home/home.component";
 import { LoginComponent } from "./components/login/login.component";
 import { RegisterComponent } from "./components/register/register.component";
 import { AuthGuard } from "./guards/auth.guard";
-import { SOSComponent } from "./components/sos/sos.component";
 import { UserprofileComponent } from "./components/userprofile/userprofile.component";
 
 const routes: Routes = [
@@ -20,12 +19,13 @@ const routes: Routes = [
   {
     path: "home",
     component: HomeComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: "userprofile",
     component: UserprofileComponent,
+    canActivate: [AuthGuard],
   },
-  { path: "sos", component: SOSComponent },
   { path: "", redirectTo: "login", pathMatch: "full" },
   { path: "**", redirectTo: "login", pathMatch: "full" },
 ];
