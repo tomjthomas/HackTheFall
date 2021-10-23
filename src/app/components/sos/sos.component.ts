@@ -1,53 +1,50 @@
-import { LexerRange } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/services/user.service';
-import { fakeCallNumber, sosMessage } from 'src/app/user';
-import { LoginComponent } from '../login/login.component';
+import { Component, OnInit } from "@angular/core";
+import { ApiCallService } from "src/app/services/api-call.service";
+import { fakeCallNumber, sosMessage } from "../../entity/user";
 
 @Component({
-  selector: 'app-sos',
-  templateUrl: './sos.component.html',
-  styleUrls: ['./sos.component.css']
+  selector: "app-sos",
+  templateUrl: "./sos.component.html",
+  styleUrls: ["./sos.component.css"],
 })
 export class SOSComponent implements OnInit {
- lat:number;
- lng:number;
- message:string ="Send help";
- status:string;
- phonenumber:string = "9400881089";
- obj:sosMessage;
- objFake:fakeCallNumber;
+  lat: number;
+  lng: number;
+  message: string = "Send help";
+  status: string;
+  phonenumber: string = "9400881089";
+  obj: sosMessage;
+  objFake: fakeCallNumber;
 
-  constructor(private serviceMethod: UserService) { }
+  constructor(private serviceMethod: ApiCallService) {}
 
-  ngOnInit() { 
-    
-  }
+  ngOnInit() {}
 
   getUserLocation() {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(position => {
-          this.lat = position.coords.latitude;
-          this.lng = position.coords.longitude;
-          console.log(this.lat,this.lng);
-          this.obj = new sosMessage();
-          this.obj.user = "9400881089" //localStorage.getItem('phonenumber');
-          this.obj.lat = this.lat;
-          this.obj.long = this.lng;
-          this.obj.message = this.message;
-          this.serviceMethod.sosMessage(this.obj).subscribe(()=>{this.status="SOS Message sent"})
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.lat = position.coords.latitude;
+        this.lng = position.coords.longitude;
+        console.log(this.lat, this.lng);
+        this.obj = new sosMessage();
+        this.obj.user = "9400881089"; //localStorage.getItem('phonenumber');
+        this.obj.lat = this.lat;
+        this.obj.long = this.lng;
+        this.obj.message = this.message;
+        this.serviceMethod.sosMessage(this.obj).subscribe(() => {
+          this.status = "SOS Message sent";
         });
-  }else {
-    alert("Give permission")
-     //console.log("Give permission")
+      });
+    } else {
+      alert("Give permission");
+      //console.log("Give permission")
+    }
   }
-
-  
-}
-FakeCall()
-  {
+  FakeCall() {
     this.objFake = new fakeCallNumber();
     this.objFake.user = "9400881089";
-    this.serviceMethod.fakeCall(this.objFake).subscribe(()=>{this.status="Call made"});
+    this.serviceMethod.fakeCall(this.objFake).subscribe(() => {
+      this.status = "Call made";
+    });
   }
 }
