@@ -12,7 +12,7 @@ import { fakeCallNumber, sosMessage } from "../../entity/user";
 })
 export class HomeComponent implements OnInit {
   activeUser: User;
-  message: string;
+  message: string ="I need help. Please follow the google maps link.";
   status: string;
 
   constructor(

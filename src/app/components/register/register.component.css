@@ -9,8 +9,8 @@ body {
 
 .btn-primary {
   color: #fff;
-  background-color: #f65c5b;
-  border-color: #f65c5b;
+  background-color: rgb(0, 0, 0);
+  border-color: rgb(0, 0, 0);
 }
 
 .form-control:not(select) {
