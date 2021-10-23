@@ -1,39 +1,34 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
-import { HttpClientModule } from '@angular/common/http';
-import { AuthGuard } from './guards/auth.guard'; 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { LoginComponent } from "./components/login/login.component";
+import { RegisterComponent } from "./components/register/register.component";
+import { HttpClientModule } from "@angular/common/http";
+import { AuthGuard } from "./guards/auth.guard";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
-import { HomeComponent } from './components/home/home.component';
+import { HomeComponent } from "./components/home/home.component";
 
-import { SOSComponent } from './components/sos/sos.component';
-
-
+import { SOSComponent } from "./components/sos/sos.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-
     HomeComponent,
-
-    SOSComponent
-
+    SOSComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [AuthGuard],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
