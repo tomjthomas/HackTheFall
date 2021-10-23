@@ -1,7 +1,7 @@
 export class User {
     firstName:string;
     lastName:string;
-    phoneNumber:number;
+    _id:string;
     emailAddress:string;
     contactList:Contact[];
 }

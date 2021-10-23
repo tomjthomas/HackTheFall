@@ -1,23 +1,30 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { User } from '../app/user';
+import { Injectable } from "@angular/core";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { User } from "../entity/user";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class UserService {
+  private baseURL = "https://hackthisfall.herokuapp.com/";
 
-  constructor(private http1: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  RegisterUser(obj: User): Observable<User> {
-    let httpHeaders = new HttpHeaders()
-      .set('Content-Type', 'application/json')
-    return this.http1.post<User>("https://url", obj)
+  registerUser(obj: User): Observable<User> {
+    let httpHeaders = new HttpHeaders().set("Content-Type", "application/json");
+    return this.http.post<User>("https://url", obj);
   }
 
-  checkIfUserExists(phoneNumber: number) {
-    //https://hackthisfall.herokuapp.com/check?user=9400881089
+  checkIfUserExists(phoneNumber: string): Observable<Response> {
+    let validationNumber: string = phoneNumber.substring(3);
+    return this.http.get<Response>(
+      `${this.baseURL}check?user=${validationNumber}`
+    );
   }
+}
 
+interface Response {
+  status: string;
+  result: User;
 }
