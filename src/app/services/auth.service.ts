@@ -1,14 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class AuthService {
+  constructor() {}
 
-  constructor() { }
-
-  logout() :void {    
-    localStorage.setItem('isLoggedIn','false');    
-    localStorage.removeItem('phoneNumber');    
+  logout(): void {
+    sessionStorage.setItem("isLoggedIn", "false");
+    sessionStorage.removeItem("activeUser");
   }
 }

@@ -19,7 +19,6 @@ const routes: Routes = [
   {
     path: "home",
     component: HomeComponent,
-    canActivate: [AuthGuard],
   },
   { path: "sos", component: SOSComponent },
   { path: "", redirectTo: "login", pathMatch: "full" },
