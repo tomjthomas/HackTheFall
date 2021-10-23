@@ -1,1 +1,61 @@
-<p>{{ user }}</p>
+<!-- <link rel="stylesheet" href="/assets/fa/css/font-awesome.min.css" />
+
+<h1>HEllo</h1> -->
+<link rel="stylesheet" href="/assets/fa/css/font-awesome.min.css" />
+<nav class="navbar fixed-top px-3">
+  <a class="navbar-brand">Navbar</a>
+  <div class="navbar navbar-right d-flex flex-row navright">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/userprofile" routerLinkActive="active"
+          >Profile</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/login" (click)="logout()">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="body">
+  <div class="container container-fluid">
+    <div class="map-container d-flex justify-content-center align-items-center">
+      <div class="inside">
+        <div class="d-flex flex-column align-items-center">
+          <div
+            class="sos-button d-flex align-items-center justify-content-center"
+            (click)="sendSOS()"
+          >
+            <h4 class="text-center font-weight-bold">SOS</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="row">
+        <div class="col-md mb-3">
+          <div class="feature card p-4 d-flex flex-row" (click)="fakeCall()">
+            <div>
+              <h3>Call me now</h3>
+              <p class="description">Get a call to your number</p>
+            </div>
+            <div>
+              <i class="fa-solid fa-phone"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-md mb-3">
+          <div class="feature card p-4 d-flex flex-row">
+            <div>
+              <h3>Share My Location</h3>
+              <p class="description">Share my location with my contacts</p>
+            </div>
+            <div>
+              <i class="fa map-marker-alt" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

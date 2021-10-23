@@ -1,14 +1,16 @@
+
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';import { Router } from '@angular/router';
-;
 import { Contact, User } from '../../entity/user';
 import { UserService } from '../../services/user.service';
 
+
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: "app-register",
+  templateUrl: "./register.component.html",
+  styleUrls: ["./register.component.css"],
 })
+
 
 export class RegisterComponent implements OnInit {
   newUser: string;

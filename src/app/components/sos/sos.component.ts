@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ApiCallService } from "src/app/services/api-call.service";
-import { fakeCallNumber, sosMessage } from "../../entity/user";
+import { fakeCallNumber, sosMessage, User } from "../../entity/user";
 
 @Component({
   selector: "app-sos",
@@ -8,32 +8,34 @@ import { fakeCallNumber, sosMessage } from "../../entity/user";
   styleUrls: ["./sos.component.css"],
 })
 export class SOSComponent implements OnInit {
-  lat: number;
-  lng: number;
-  message: string = "Send help";
+  activeUser: User;
+  message: string;
   status: string;
-  phonenumber: string;
-  obj: sosMessage;
-  objFake: fakeCallNumber;
+
 
   constructor(private serviceMethod: ApiCallService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getActiveUser();
+  }
+
+  getActiveUser() {
+    this.activeUser = JSON.parse(sessionStorage.getItem("activeUser"));
+  }
 
   getUserLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
-        this.lat = position.coords.latitude;
-        this.lng = position.coords.longitude;
-        console.log(this.lat, this.lng);
-        this.obj = new sosMessage();
-        this.obj.user = JSON.parse(sessionStorage.getItem('activeUser'));
-        //console.log(this.obj.user);
-        this.obj.lat = this.lat;
-        this.obj.long = this.lng;
-        this.obj.message = this.message;
-        this.serviceMethod.sosMessage(this.obj).subscribe(() => {
-         this.status = "SOS Message sent";
+        let lat = position.coords.latitude;
+        let lng = position.coords.longitude;
+        let sosMessageObj = new sosMessage();
+        sosMessageObj.user = this.activeUser._id; //localStorage.getItem('phonenumber');
+        sosMessageObj.lat = lat;
+        sosMessageObj.long = lng;
+        sosMessageObj.message = this.message;
+        this.serviceMethod.sosMessage(sosMessageObj).subscribe(() => {
+          this.status = "SOS Message sent";
+
         });
       });
     } else {
@@ -41,10 +43,10 @@ export class SOSComponent implements OnInit {
       //console.log("Give permission")
     }
   }
-  FakeCall() {
-    this.objFake = new fakeCallNumber();
-    this.objFake.user = "9400881089";
-    this.serviceMethod.fakeCall(this.objFake).subscribe(() => {
+  fakeCall() {
+    let objFake = new fakeCallNumber();
+    objFake.user = this.activeUser._id;
+    this.serviceMethod.fakeCall(objFake).subscribe(() => {
       this.status = "Call made";
     });
   }

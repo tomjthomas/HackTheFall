@@ -8,6 +8,7 @@ import { RegisterComponent } from "./components/register/register.component";
 import { HttpClientModule } from "@angular/common/http";
 import { AuthGuard } from "./guards/auth.guard";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { HomeComponent } from "./components/home/home.component";
 
@@ -29,6 +30,7 @@ import { UserprofileComponent } from './components/userprofile/userprofile.compo
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    NgbModule,
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent],
