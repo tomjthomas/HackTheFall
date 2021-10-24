@@ -20,6 +20,7 @@
       <div class="container-fluid">
         <div class="navbar-header" style="font-family: Bahnschrift">
           <button
+            style="padding: 0%; border: 0ch"
             type="button"
             class="navbar-toggle collapsed"
             data-toggle="collapse"
@@ -27,8 +28,12 @@
             aria-expanded="false"
           >
             <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"
-              ><img id="logo" src="/assets/img/image.png" alt="logo"
+            <span class="icon-bar" style="padding: 0%"
+              ><img
+                style="width: 100px; height: auto; padding: 0%"
+                id="logo"
+                src="/assets/img/images1.jpg"
+                alt="logo"
             /></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -50,7 +55,7 @@
         </div>
         <div class="row py-5 mt-4 align-items-center">
           <!-- Registeration Form -->
-          <div class="col-5 mx-auto">
+          <div>
             <form>
               <div id="pg1" [style.display]="isShown ? 'block' : 'none'">
                 <div class="form-row">
