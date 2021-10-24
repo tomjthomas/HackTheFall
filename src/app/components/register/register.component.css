@@ -4,7 +4,7 @@
 
 body {
   min-height: 100vh;
-  background-color: #fff;
+  background-color: #000;
 }
 
 #logo {
@@ -31,10 +31,6 @@ body {
   border-color: rgb(0, 0, 0);
 }
 
-.form-control:not(select) {
-  /* padding: 1.5rem 0.5rem; */
-}
-
 select.form-control {
   height: 52px;
   padding-left: 0.5rem;
@@ -47,4 +43,8 @@ select.form-control {
 }
 .form-control:focus {
   box-shadow: none;
+}
+
+.register-card {
+  background-color: #fff;
 }
